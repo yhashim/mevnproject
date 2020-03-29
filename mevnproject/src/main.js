@@ -14,6 +14,7 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
+import Account from './components/Account.vue';
 import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
@@ -21,8 +22,13 @@ import EditComponent from './components/EditComponent.vue';
 
 const routes = [
   {
-      name: 'home',
+      name: 'account',
       path: '/',
+      component: Account
+  },
+  {
+      name: 'home',
+      path: '/home',
       component: HomeComponent
   },
   {
