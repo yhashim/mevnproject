@@ -213,55 +213,12 @@ span.psw {
 </style>
 
 <script>
-  var accts = [];
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-  function createNewAccnt() {
-    var fname = document.querySelectorAll('input[name="fname"]')[0].value;
-    var title = document.querySelectorAll('select[name="title"]');
-    var uname = document.querySelectorAll('input[name="newuname"]')[0].value;
-    var psw = document.querySelectorAll('input[name="newpsw"]')[0].value;
-    var sq = document.querySelectorAll('select[name="sqs"]');
-    var sqa = document.querySelectorAll('input[name="sqa"]')[0].value;
-    for (var i = 0; i<accts.length; i++){
-      if (uname == accts[i].getUname()) {
-        alert("The username: " + uname + " is unavailable.");
-        return;
-      }
-    }
-    accts[accts.length+1] = new Person(fname, title, uname, psw, sq, sqa);
-    location.href("http://localhost:8080/");
-    console.log("new page");
-    return;
-  }
-
-  function checkAcct() {
-    var uname = document.querySelectorAll('input[name="newuname"]')[0].value;
-    var psw = document.querySelectorAll('input[name="newpsw"]')[0].value;
-    var userNum = -1;
-    for (var i = 0; i<accts.length; i++){
-      if (uname == accts[i].getUname()) {
-        userNum = i;
-        break;
-      }
-    }
-    if (userNum == -1){
-      alert("There are no accounts under the username: " + uname + ".");
-      return;
-    } else {
-      if (psw == accts[userNum].getPsw()){
-        location.href("http://localhost:8080/home");
-        console.log("new page");
-        return;
-      } else {
-        alert("Incorrect password.");
-        return;
-      }
-    }
-    return;
-  }
-
-  class Person {
-    constructor(fname, title, uname, psw, sq, sqa) {
+@Component
+class Person extends Vue {
+  constructor(fname, title, uname, psw, sq, sqa) {
       this.fname = fname;
       this.title = title;
       this.uname = uname;
@@ -287,33 +244,64 @@ span.psw {
     getSQA() {
       return this.sqa;
     }
-  }
-  // checkAcct(){
-    //var uname = document.querySelectorAll('input[name="uname"]');
-      // if uname available in list of accts, check psw
-      // else, pop-up "uname does not exist"
-    //var psw = document.querySelectorAll('input[name="psw"]');
-      // if psw matches to uname's psw, login to the next page under their acct
-      // else, pop-up "psw incorrect"
-  // }
+}
 
-
-  // Get the modal
-  var modal1 = document.getElementById('id01');
-  var modal2 = document.getElementById('id02');
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target == modal1) {
-          modal1.style.display = "none";
-      }
-      if (event.target == modal2) {
-          modal2.style.display = "none";
-      }
-  }
-
-  export default{
-
-  }
-
+export default {
+    methods : {
+      createNewAccnt() {
+          var fname = document.querySelectorAll('input[name="fname"]')[0].value;
+          var title = document.querySelectorAll('select[name="title"]');
+          var uname = document.querySelectorAll('input[name="newuname"]')[0].value;
+          var psw = document.querySelectorAll('input[name="newpsw"]')[0].value;
+          var sq = document.querySelectorAll('select[name="sqs"]');
+          var sqa = document.querySelectorAll('input[name="sqa"]')[0].value;
+          for (var i = 0; i<accts.length; i++){
+            if (uname == accts[i].getUname()) {
+              alert("The username: " + uname + " is unavailable.");
+              return;
+            }
+          }
+          accts[accts.length+1] = new Person(fname, title, uname, psw, sq, sqa);
+          location.href("http://localhost:8080/");
+          console.log("new page");
+          return;
+        },
+      
+      checkAcct() {
+          var uname = document.querySelectorAll('input[name="newuname"]')[0].value;
+          var psw = document.querySelectorAll('input[name="newpsw"]')[0].value;
+          var userNum = -1;
+          for (var i = 0; i<accts.length; i++){
+            if (uname == accts[i].getUname()) {
+              userNum = i;
+              break;
+            }
+          }
+          if (userNum == -1){
+            alert("There are no accounts under the username: " + uname + ".");
+            return;
+          } else {
+            if (psw == accts[userNum].getPsw()){
+              location.href("http://localhost:8080/home");
+              console.log("new page");
+              return;
+            } else {
+              alert("Incorrect password.");
+              return;
+            }
+          }
+          return;
+        }
+      
+        // checkAcct(){
+          //var uname = document.querySelectorAll('input[name="uname"]');
+            // if uname available in list of accts, check psw
+            // else, pop-up "uname does not exist"
+          //var psw = document.querySelectorAll('input[name="psw"]');
+            // if psw matches to uname's psw, login to the next page under their acct
+            // else, pop-up "psw incorrect"
+        // }
+    }
+  };
+  
 </script>
