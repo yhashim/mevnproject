@@ -266,7 +266,7 @@ export default {
           console.log("new page");
           return;
         },
-      
+
       checkAcct() {
           var uname = document.querySelectorAll('input[name="newuname"]')[0].value;
           var psw = document.querySelectorAll('input[name="newpsw"]')[0].value;
@@ -292,15 +292,6 @@ export default {
           }
           return;
         }
-      
-        // checkAcct(){
-          //var uname = document.querySelectorAll('input[name="uname"]');
-            // if uname available in list of accts, check psw
-            // else, pop-up "uname does not exist"
-          //var psw = document.querySelectorAll('input[name="psw"]');
-            // if psw matches to uname's psw, login to the next page under their acct
-            // else, pop-up "psw incorrect"
-        // }
     }
   };
   

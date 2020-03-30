@@ -37,20 +37,21 @@
     </form>
   </div>
 </template>
- <script>
-    export default {
-        data(){
-        return {
-          Contact:{}
-        }
+
+<script>
+  export default {
+    data(){
+      return {
+        Contact:{}
+      }
     },
     methods: {
       addContact(){
-    let uri = 'http://localhost:4000/Contacts/add';
-    this.axios.Contact(uri, this.Contact).then(() => {
-       this.$router.push({name: 'Contacts'});
-    });
-}
+          let uri = 'http://localhost:4000/Contacts/add';
+          this.axios.Contact(uri, this.Contact).then(() => {
+             this.$router.push({name: 'Contacts'});
+          });
+      }
     }
   }
 </script>

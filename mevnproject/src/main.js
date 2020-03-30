@@ -14,23 +14,26 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
-import Account from './components/Account.vue';
+import Login from './components/Login.vue';
+
 import HomeComponent from './components/HomeComponent.vue';
+
 import CreateComponent from './components/CreateComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
 import EditComponent from './components/EditComponent.vue';
 
 const routes = [
   {
-      name: 'account',
+      name: 'login',
       path: '/',
-      component: Account
+      component: Login
   },
   {
       name: 'home',
       path: '/home',
       component: HomeComponent
   },
+
   {
       name: 'create',
       path: '/create',
