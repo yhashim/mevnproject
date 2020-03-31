@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div class="navigate" id="navigate">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <ul class="navbar-nav">
             <li class="nav-item">
               <router-link to="/" class="nav-link">Log-in</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/create" class="nav-link">Create New Account</router-link>
+              <router-link to="/create" class="nav-link">Create Account</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/posts" class="nav-link">Posts</router-link>
+              <router-link to="/posts" class="nav-link">Directory of Medical Participants</router-link>
             </li>
           </ul>
         </nav><br />

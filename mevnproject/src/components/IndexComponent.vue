@@ -1,25 +1,21 @@
 <template>
   <div>
-      <h1>Contacts</h1>
-        <div class="row">
-          <div class="col-md-10"></div>
-          <div class="col-md-2">
-            <router-link :to="{ name: 'create' }" class="btn btn-primary">Create Contact</router-link>
-          </div>
-        </div><br />
-
+      <h2>Directory of Medical Participants</h2>
+      <br/>
         <table class="table table-hover">
             <thead>
             <tr>
               <th>Title</th>
-              <th>Body</th>
+              <th>Full Name</th>
+              <th>Email Address</th>
               <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-                <tr v-for="Contact in Contacts" :key="Contact._id">
-                  <td>{{ Contact.title }}</td>
-                  <td>{{ Contact.body }}</td>
+                <tr v-for="Account in Accounts" :key="Account._id">
+                  <td>{{ Account.title }}</td>
+                  <td>{{ Account.fullName }}</td>
+                  <td>{{ Account.email }}</td>
                   <td><router-link :to="{name: 'edit', params: { id: Contact._id }}" class="btn btn-primary">Edit</router-link></td>
                   <td><button class="btn btn-danger" @click.prevent="deleteContact(Contact._id)">Delete</button></td>
                 </tr>
@@ -32,13 +28,13 @@
   export default {
       data() {
         return {
-          Contacts: []
+          Accounts: []
         }
       },
       created() {
-      let uri = 'http://localhost:4000/Contacts';
+      let uri = 'http://localhost:4000/Accounts';
       this.axios.get(uri).then(response => {
-        this.Contacts = response.data;
+        this.Accounts = response.data;
       });
     },
     methods: {
