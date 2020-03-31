@@ -16,8 +16,8 @@
                   <td>{{ Account.title }}</td>
                   <td>{{ Account.fullName }}</td>
                   <td>{{ Account.email }}</td>
-                  <td><router-link :to="{name: 'edit', params: { id: Contact._id }}" class="btn btn-primary">Edit</router-link></td>
-                  <td><button class="btn btn-danger" @click.prevent="deleteContact(Contact._id)">Delete</button></td>
+                  <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-primary">Edit</router-link></td>
+                  <td><button class="btn btn-danger" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
@@ -32,19 +32,19 @@
         }
       },
       created() {
-      let uri = 'http://localhost:4000/Accounts';
-      this.axios.get(uri).then(response => {
-        this.Accounts = response.data;
-      });
-    },
-    methods: {
-      deleteContact(id)
-      {
-        let uri = `http://localhost:4000/Contacts/delete/${id}`;
-        this.axios.delete(uri).then(response => {
-          this.Contacts.splice(this.Contacts.indexOf(id), 1);
+        let uri = 'http://localhost:4000/Accounts';
+        this.axios.get(uri).then(response => {
+          this.Accounts = response.data;
         });
+      },
+      methods: {
+        deleteAccount(id)
+        {
+          let uri = `http://localhost:4000/Accounts/delete/${id}`;
+          this.axios.delete(uri).then(response => {
+            this.Accounts.splice(this.Accounts.indexOf(id), 1);
+          });
+        }
       }
     }
-  }
 </script>
