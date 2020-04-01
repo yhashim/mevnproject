@@ -44,6 +44,7 @@
         var email = document.querySelectorAll('input[name="email"]')[0].value;
         var password = document.querySelectorAll('input[name="password"]')[0].value;
         var acctFound = false;
+        var acct;
         for (acct of this.Accounts){
           if (email === acct.Email) {
             if (password === acct.Password) {

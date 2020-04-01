@@ -5,25 +5,25 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for Account
 let Account = new Schema({
-  Specialization: {
+  specialization: {
     type: String
   },
-  Title: {
+  title: {
     type: String
   },
-  FullName: {
+  fullName: {
     type: String
   }, 
-  Email: {
+  email: {
   	type: String
   },
-  Password: {
+  password: {
     type: String
   },
-  SecurityQuestion: {
+  securityQuestion: {
     type: String
   },
-  SecurityAnswer: {
+  securityAnswer: {
     type: String
   }
 },{

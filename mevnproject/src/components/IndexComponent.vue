@@ -7,6 +7,7 @@
             <tr>
               <th>Title</th>
               <th>Full Name</th>
+              <th>Specialization</th>
               <th>Email Address</th>
               <th>Actions</th>
             </tr>
@@ -15,6 +16,7 @@
                 <tr v-for="Account in Accounts" :key="Account._id">
                   <td>{{ Account.title }}</td>
                   <td>{{ Account.fullName }}</td>
+                  <td>{{ Account.specialization }}</td>
                   <td>{{ Account.email }}</td>
                   <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-primary">Edit</router-link></td>
                   <td><button class="btn btn-danger" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
@@ -23,6 +25,12 @@
         </table>
   </div>
 </template>
+
+<style>
+  tbody {
+    font-size: 80%;
+  }
+</style>
 
 <script>
   export default {

@@ -73,28 +73,29 @@
     },
     methods: {
       addAccount(){
-        console.log("start");
+        // console.log("start");
         var email = document.querySelectorAll('input[name="email"]')[0].value;
-        console.log(email);
-        console.log(this.Account);
-        console.log(this.Accounts);
+        // console.log(email);
+        // console.log(this.Account);
+        // console.log(this.Accounts);
+        var acct; 
         for (acct of this.Accounts){
-          console.log("checking");
+          // console.log("checking");
           if (acct !== null) {
             if (email === acct.Email) {
-              alert("The email: " + email + " is unavailable.");
+              console.log("The email: " + email + " is unavailable.");
               return;
             }
           }
         }
-        console.log("passed check");
-        let uri = 'http://localhost:4000/Accounts/add';
+        // console.log("passed check");
+        let uri = 'http://localhost:4000/accounts/add';
           this.axios.post(uri, this.Account).then(() => {
             console.log("pushing");
-            this.$router.push({name: 'posts'});
-            alert("An account under the email " + email + " was successfully created.");
+            // this.$router.push({name: 'posts'});
+            console.log("An account under the email " + email + " was successfully created.");
           });
-        console.log("done");
+        // console.log("done");
         console.log(this.Account);
         console.log(this.Accounts);
         return;  

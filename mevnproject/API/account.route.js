@@ -9,6 +9,7 @@ let account = require('./account.model');
 accountRoutes.route('/add').post(function (req, res) {
   console.log(req.body);
   let account = new account(req.body);
+  console.log(account);
   account.save()
     .then(() => {
       res.status(200).json({'business': 'business is added successfully'});
@@ -48,13 +49,20 @@ accountRoutes.route('/update/:id').post(function (req, res) {
     if (!account)
       res.status(404).send("data is not found");
     else {
-        account.Specialization = req.body.Specialization;
-        account.Title = req.body.Title;
-        account.FullName = req.body.FullName;
-        account.Email = req.body.Email;
-        account.Password = req.body.Password;
-        account.SecurityQuestion = req.body.SecurityQuestion;
-        account.SecurityAnswer = req.body.SecurityAnswer;
+        // account.Specialization = req.body.Specialization;
+        // account.Title = req.body.Title;
+        // account.FullName = req.body.FullName;
+        // account.Email = req.body.Email;
+        // account.Password = req.body.Password;
+        // account.SecurityQuestion = req.body.SecurityQuestion;
+        // account.SecurityAnswer = req.body.SecurityAnswer;
+        account.specialization = req.body.specialization;
+        account.title = req.body.title;
+        account.fullName = req.body.fullName;
+        account.email = req.body.email;
+        account.password = req.body.password;
+        account.securityQuestion = req.body.securityQuestion;
+        account.securityAnswer = req.body.securityAnswer;
         account.save().then(() => {
           res.json('Update complete');
       })

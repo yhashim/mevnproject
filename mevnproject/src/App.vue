@@ -13,7 +13,7 @@
               <router-link to="/posts" class="nav-link">Directory of Medical Participants</router-link>
             </li>
           </ul>
-        </nav><br />
+        </nav><br/>
         <transition name="fade">
           <router-view></router-view>
         </transition>
