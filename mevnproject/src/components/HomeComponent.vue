@@ -46,17 +46,17 @@
         var acctFound = false;
         var acct;
         for (acct of this.Accounts){
-          if (email === acct.Email) {
-            if (password === acct.Password) {
-              acctFound = true;
+          if (email === acct.email) {
+            acctFound = true;
+            if (password === acct.password) {
               this.$router.push({name: 'posts'}); // change later
             } else {
-              alert("The password input for the email " + email + " is incorrect.");
+              console.log("The password input for the email " + email + " is incorrect.");
             }
           }
         }
         if (!acctFound) {
-          alert("An account under the email " + email + " cannot be found");
+          console.log("An account under the email " + email + " cannot be found");
         }
         // let uri = 'http://localhost:4000/Accounts/add';
         //   this.axios.posts(uri, this.Account).then(() => {

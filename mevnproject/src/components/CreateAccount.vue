@@ -82,7 +82,7 @@
         for (acct of this.Accounts){
           // console.log("checking");
           if (acct !== null) {
-            if (email === acct.Email) {
+            if (email === acct.email) {
               console.log("The email: " + email + " is unavailable.");
               return;
             }
