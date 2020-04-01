@@ -10,6 +10,7 @@
               <th>Specialization</th>
               <th>Email Address</th>
               <th>Actions</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -27,9 +28,9 @@
 </template>
 
 <style>
-  tbody {
+  /*tbody {
     font-size: 80%;
-  }
+  }*/
 </style>
 
 <script>
