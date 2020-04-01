@@ -50,6 +50,7 @@
             acctFound = true;
             if (password === acct.password) {
               this.$router.push({name: 'posts'}); // change later
+              return;
             } else {
               console.log("The password input for the email " + email + " is incorrect.");
             }

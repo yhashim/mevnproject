@@ -74,7 +74,7 @@ accountRoutes.route('/update/:id').post(function (req, res) {
 });
 
 // Defined delete | remove | destroy route
-accountRoutes.route('/steve/:id').delete(function (req, res) {
+accountRoutes.route('/delete/:id').delete(function (req, res) {
     console.log(req.body);
     console.log(req.params);
 
