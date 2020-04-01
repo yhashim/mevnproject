@@ -18,8 +18,8 @@
                   <td>{{ Account.fullName }}</td>
                   <td>{{ Account.specialization }}</td>
                   <td>{{ Account.email }}</td>
-                  <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-primary">Edit</router-link></td>
-                  <td><button class="btn btn-danger" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
+                  <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-light">Edit</router-link></td>
+                  <td><button class="btn btn-light" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>

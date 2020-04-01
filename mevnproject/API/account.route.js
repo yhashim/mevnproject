@@ -3,12 +3,12 @@ const express = require('express');
 const accountRoutes = express.Router();
 
 // Require account model in our routes module
-let account = require('./account.model');
+let Account = require('./account.model');
 
 // Defined store route
 accountRoutes.route('/add').post(function (req, res) {
   console.log(req.body);
-  let account = new account(req.body);
+  let account = new Account(req.body);
   console.log(account);
   account.save()
     .then(() => {
@@ -22,7 +22,7 @@ accountRoutes.route('/add').post(function (req, res) {
 // Defined get data(index or listing) route
 accountRoutes.route('/').get(function (req, res) {
   console.log(req);
-    account.find(function(err, accounts){
+    Account.find(function(err, accounts){
     if(err){
       res.json(err);
     }
@@ -35,7 +35,7 @@ accountRoutes.route('/').get(function (req, res) {
 // Defined edit route
 accountRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
-  account.findById(id, function (err, account){
+  Account.findById(id, function (err, account){
       if(err) {
         res.json(err);
       }
@@ -45,7 +45,7 @@ accountRoutes.route('/edit/:id').get(function (req, res) {
 
 //  Defined update route
 accountRoutes.route('/update/:id').post(function (req, res) {
-    account.findById(req.params.id, function(err, account) {
+    Account.findById(req.params.id, function(err, account) {
     if (!account)
       res.status(404).send("data is not found");
     else {
@@ -78,12 +78,12 @@ accountRoutes.route('/delete/:id').delete(function (req, res) {
     console.log(req.body);
     console.log(req.params);
 
-    account.findByIdAndRemove({_id: req.params.id}, function(err){
+    Account.findByIdAndRemove({_id: req.params.id}, function(err){
         if(err){
           //console.log(err);
          res.json(err);
         }else {
-          account.find(function(err, accounts){
+          Account.find(function(err, accounts){
             if(err){
               res.json(err);
             }
