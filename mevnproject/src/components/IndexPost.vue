@@ -61,6 +61,7 @@
             if (Post._id === id) {
               Post.flagged+=1;
               if (Post.flagged>=3) {
+                // add Post.email to a block list and prevent them from being able to ever make an acct under that email address ever again
                 let uri = `http://localhost:4000/Posts/delete/${id}`;
                 this.axios.delete(uri).then(response => {
                   this.Posts.splice(this.Posts.indexOf(id), 1);
