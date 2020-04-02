@@ -16,8 +16,12 @@ Vue.config.productionTip = false;
 
 import CreateAccount from './components/CreateAccount.vue';
 import EditAccount from './components/EditAccount.vue';
-
 import IndexComponent from './components/IndexComponent.vue';
+
+import CreatePost from './components/CreatePost.vue';
+import EditPost from './components/EditPost.vue';
+import IndexPost from './components/IndexPost.vue';
+
 import HomeComponent from './components/HomeComponent.vue';
 
 const routes = [
@@ -32,14 +36,29 @@ const routes = [
       component: HomeComponent
   },
   {
-      name: 'posts',
-      path: '/posts',
+      name: 'accounts',
+      path: '/accounts',
       component: IndexComponent
   },
   {
       name: 'edit',
       path: '/edit/:id',
       component: EditAccount
+  },
+  {
+      name: 'createPost',
+      path: '/createPost',
+      component: CreatePost
+  },
+  {
+      name: 'posts',
+      path: '/posts',
+      component: IndexPost
+  },
+  {
+      name: 'editPost',
+      path: '/editPost/:id',
+      component: EditPost
   }
 ];
 

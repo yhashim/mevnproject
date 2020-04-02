@@ -10,7 +10,13 @@
               <router-link to="/create" class="nav-link">Create Account</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/posts" class="nav-link">Directory of Medical Participants</router-link>
+              <router-link to="/accounts" class="nav-link">Directory of Medical Participants</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/createPost" class="nav-link">Create Post</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/posts" class="nav-link">Posts</router-link>
             </li>
           </ul>
         </nav><br/>

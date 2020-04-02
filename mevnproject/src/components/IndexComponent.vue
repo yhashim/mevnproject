@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>Directory of Medical Participants</h2>
+      <h5>Directory of Medical Participants</h5>
       <br/>
         <table class="table table-hover">
             <thead>
