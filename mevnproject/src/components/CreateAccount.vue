@@ -73,32 +73,48 @@
     },
     methods: {
       addAccount(){
-        // console.log("start");
         var email = document.querySelectorAll('input[name="email"]')[0].value;
-        // console.log(email);
-        // console.log(this.Account);
-        // console.log(this.Accounts);
-        var acct; 
-        for (acct of this.Accounts){
-          // console.log("checking");
-          if (acct !== null) {
-            if (email === acct.email) {
-              console.log("The email: " + email + " is unavailable.");
-              return;
-            }
+        console.log(email);
+
+        // var acct; 
+        var used = false;
+        // for (acct of this.Accounts){
+        //   // console.log("checking");
+        //   if (acct !== null) {
+        //     if (email === acct.email) {
+        //       used = true;
+        //       console.log("The email: " + email + " is unavailable.");
+        //       return;
+        //     }
+        //   }
+        // }
+
+        for (var i = 0; i < this.Accounts.length; ++i) {
+          console.log(this.Accounts[i].email); 
+          if (email === this.Accounts[i].email) { 
+            used = true;
+            console.log("The email: " + email + " is unavailable.");
+            return;
           }
         }
-        // console.log("passed check");
-        let uri = 'http://localhost:4000/accounts/add';
-          this.axios.post(uri, this.Account).then(() => {
-            console.log("pushing");
-            // this.$router.push({name: 'posts'});
-            console.log("An account under the email " + email + " was successfully created.");
-          });
-        // console.log("done");
-        console.log(this.Account);
-        console.log(this.Accounts);
-        return;  
+
+        if (!used) { 
+          // console.log("passed check");
+          let uri = 'http://localhost:4000/accounts/add';
+            this.axios.post(uri, this.Account).then(() => {
+              console.log("pushing");
+              let uri = 'http://localhost:4000/Accounts';
+              this.axios.get(uri).then(response => {
+                this.Accounts = response.data;
+              });
+              // this.$router.push({name: 'posts'});
+              console.log("An account under the email " + email + " was successfully created.");
+            });
+          // console.log("done");
+          console.log(this.Account);
+          console.log(this.Accounts);
+          return;  
+        }
       }
     }
   }

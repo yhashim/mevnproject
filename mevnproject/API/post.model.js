@@ -16,6 +16,9 @@ let Post = new Schema({
   }, 
   flagged: {
     type: Number
+  }, 
+  replies: {
+    type: Array
   }
 },{
     collection: 'posts'

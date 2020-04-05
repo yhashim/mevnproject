@@ -49,10 +49,22 @@
       methods: {
         deleteAccount(id)
         {
+          // let uri = `http://localhost:4000/Accounts/delete/${id}`;
+          // this.axios.delete(uri).then(response => {
+          //   this.Accounts.splice(this.Accounts.indexOf(id), 1);
+          // });
+
+          // I'm going to borrow this for now! Please understand :)
           let uri = `http://localhost:4000/Accounts/delete/${id}`;
           this.axios.delete(uri).then(response => {
-            this.Accounts.splice(this.Accounts.indexOf(id), 1);
+            for (var i = 0; i < this.Accounts.length; ++i) { 
+              if (this.Accounts[i]._id === id) { 
+                this.Accounts.splice(i, 1); 
+                return;
+              }
+            }
           });
+
         }
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="App">
     <div class="navigate" id="navigate">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <ul class="navbar-nav">
@@ -27,12 +27,12 @@
   </div>
 </template>
 
-<style>
-
-</style>
-
 <script>
   export default{
-
+    // get logged in id
+    // use the id to pass into various thing
+    // let you know which to display
+    // what functs they can do
+    // etc.
   }
 </script>

@@ -5,9 +5,13 @@
   <br/>
     <form @submit.prevent="addPost">
       <div class="form-row">
-        <div class="form-row">
+        <div class="col">
           <label for="title">Post Title</label>
           <input type="text" id="title" placeholder="Post Title" class="form-control" v-model="Post.title" name="title" required>
+        </div>
+        <div class="col">
+          <label for="poster">Author</label>
+          <input type="text" id="poster" placeholder="Author" class="form-control" v-model="Post.poster" name="poster" required>
         </div>
         <br/>
         <div class="form-row">

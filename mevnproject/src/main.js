@@ -20,6 +20,7 @@ import IndexComponent from './components/IndexComponent.vue';
 
 import CreatePost from './components/CreatePost.vue';
 import EditPost from './components/EditPost.vue';
+import ViewPost from './components/ViewPost.vue';
 import IndexPost from './components/IndexPost.vue';
 
 import HomeComponent from './components/HomeComponent.vue';
@@ -59,6 +60,11 @@ const routes = [
       name: 'editPost',
       path: '/editPost/:id',
       component: EditPost
+  },
+  {
+      name: 'viewPost',
+      path: '/viewPost/:id',
+      component: ViewPost
   }
 ];
 
