@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+  <div id="secure">
   <!-- Create New Post -->
-  <h5>Create a New Post</h5>
+  <h3>Create a New Post</h3>
   <br/>
     <form @submit.prevent="addPost">
       <div class="form-row">
@@ -13,16 +14,21 @@
           <label for="poster">Author</label>
           <input type="text" id="poster" placeholder="Author" class="form-control" v-model="Post.poster" name="poster" required>
         </div>
-        <br/>
+        <br/><br/><br/>
         <div class="form-row">
-          <label for="text">Text</label>
-          <input type="text" class="form-control" id="text" aria-describedby="textHelp" placeholder="Enter text here..." name="text" v-model="Post.text" required>
-          <small id="textHelp" class="form-text text-muted">Insert your question or ideas. Be sure to abide to our rules of equality and respect of others. Posts found to violate the rights of others including but not limited to: posts of hate speech, posts of disrespect, and posts of inappropriate information, can result in the expulsion of a user from our interface.</small>
+          <div class="col">
+            <label for="text">Text</label>
+            <input type="text" class="form-control" id="text" aria-describedby="textHelp" placeholder="Enter text here..." name="text" v-model="Post.text" required>
+            <small id="textHelp" class="form-text text-muted">Insert your question or ideas. Be sure to abide to our rules of equality and respect of others. Posts found to violate the rights of others including but not limited to: posts of hate speech, posts of disrespect, and posts of inappropriate information, can result in the expulsion of a user from our interface.</small>
+          </div>
         </div>
       </div>
       <br/>
-      <button type="submit" class="btn btn-light">Submit</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-info">Submit</button>
+      </div>
     </form>
+  </div>
   </div>
 </template>
 
@@ -37,6 +43,7 @@
 
 <script> 
   export default {
+    name: 'Secure',
     data(){
       return {
         Post: {},

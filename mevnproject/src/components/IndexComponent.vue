@@ -1,9 +1,9 @@
 <template>
   <div>
-      <h5>Directory of Medical Participants</h5>
+      <h3>Directory of Medical Participants</h3>
       <br/>
-        <table class="table table-hover">
-            <thead>
+        <table class="table table-hover table-borderless">
+            <thead class="table table-borderless">
             <tr>
               <th>Title</th>
               <th>Full Name</th>
@@ -19,19 +19,13 @@
                   <td>{{ Account.fullName }}</td>
                   <td>{{ Account.specialization }}</td>
                   <td>{{ Account.email }}</td>
-                  <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-light">Edit</router-link></td>
-                  <td><button class="btn btn-light" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
+                  <td><router-link :to="{name: 'edit', params: { id: Account._id }}" class="btn btn-info">Edit</router-link></td>
+                  <td><button class="btn btn-danger" @click.prevent="deleteAccount(Account._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
   </div>
 </template>
-
-<style>
-  /*tbody {
-    font-size: 80%;
-  }*/
-</style>
 
 <script>
   export default {

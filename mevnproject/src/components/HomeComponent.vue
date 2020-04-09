@@ -1,32 +1,40 @@
 <template>
   <div class="container">
+  <div id="login">
   <!-- Intro page to application -->
-    <h2>Welcome to Med StackExchange</h2>
-    <p>a forum for medical students and professors</p>
+    <h1>Welcome to Med QueueExchange</h1>
+    <h6>a forum for medical students and profs</h6>
     <br/>
-    <h5>Log-in</h5>
-    <br/>
+    <h3>Log-in</h3>
     <form @submit.prevent="verifyAccount">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
+        <input v-model="account.email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
         <small id="emailHelp" class="form-text text-muted">Please note that emails and passwords are case-sensitive in logging in.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
+        <input v-model="account.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
       </div>
-      <button type="submit" class="btn btn-light">Submit</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-info" v-on:click="verifyAccount()">
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          Log-in
+          <span class="sr-only"></span>
+        </button>
+      </div>
     </form>
-    
+  </div>
   </div>
  </template>
  
  <script>
   export default {
+    name: 'Login',
     data(){
       return {
-        Accounts:[]
+        Accounts:[],
+        account: {}
       }
     },
     created() {
@@ -45,6 +53,8 @@
           if (email === acct.email) {
             acctFound = true;
             if (password === acct.password) {
+              this.$emit("authenticated", true);
+              this.$router.replace({ name: "create" });
               this.$router.push({name: 'posts'}); // change later
               return;
             } else {

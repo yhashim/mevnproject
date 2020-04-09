@@ -1,8 +1,8 @@
 <template>
   <div>
-      <h5>Posts</h5>
+      <h3>All Posts</h3>
       <br/>
-        <table class="table table-hover">
+        <table class="table table-hover table-borderless">
             <thead>
             <tr>
               <th>Title</th>
@@ -15,12 +15,12 @@
             </thead>
             <tbody>
                 <tr v-for="Post in Posts" :key="Post._id">
-                  <td><router-link :to="{name: 'viewPost', params: { id: Post._id }}" class="btn btn-light">{{ Post.title }}</router-link></td>
+                  <td><router-link :to="{name: 'viewPost', params: { id: Post._id }}" class="btn btn-outline-info">{{ Post.title }}</router-link></td>
                   <!-- <td>{{ Post.text }}</td> -->
                   <td>{{ Post.poster }}</td>
-                  <td><router-link :to="{name: 'editPost', params: { id: Post._id }}" class="btn btn-light">Edit</router-link></td>
-                  <td><button class="btn btn-light" @click.prevent="deletePost(Post._id)">Delete</button></td>
-                  <td><button class="btn btn-light" @click.prevent="flagPost(Post._id)">Report As Inappropriate</button></td>
+                  <td><router-link :to="{name: 'editPost', params: { id: Post._id }}" class="btn btn-info">Edit</router-link></td>
+                  <td><button class="btn btn-danger" @click.prevent="deletePost(Post._id)">Delete</button></td>
+                  <td><button class="btn btn-danger" @click.prevent="flagPost(Post._id)">Report</button></td>
                 </tr>
             </tbody>
         </table>

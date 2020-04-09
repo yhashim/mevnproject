@@ -1,13 +1,27 @@
 <template>
   <div>
-    <h5>{{ Post.title }}</h5>
+    <div class="card text-center">
+      <div class="card-header">
+        Post
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ Post.title }}</h5>
+        <p class="card-text">{{ Post.text }}</p>
+        <router-link to="/posts" class="btn btn-info">View Other Posts</router-link>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+    </div>
+
+    <h3>{{ Post.title }}</h3>
     <small>Post by: {{ Post.poster }}</small>
     <br/>
     <small>{{ Post.text }}</small>
     <br/><br/>
 
     <h5>Add a reply:</h5>
-    <form @submit.prevent="addReply">
+    <!-- <form @submit.prevent="addReply">
       <div class="form-row">
         <div class="form-row">
           <label for="poster">Author</label>
@@ -21,11 +35,11 @@
       </div>
       <br/>
       <button type="submit" class="btn btn-light">Submit</button>
-    </form>
+    </form> -->
 
     <br/><br/>
     <h5>Replies to: {{ Post.title }}</h5>
-    <table class="table table-hover">
+<!--     <table class="table table-hover">
       <thead>
         <tr>
         <th>Author</th>
@@ -38,7 +52,7 @@
             <td>{{ Reply.text }}</td>
           </tr>
       </tbody>
-    </table>
+    </table> -->
 
   </div>
 </template>
@@ -58,16 +72,7 @@
       });
     },
     methods: {
-      addPost(){
-        let uri = 'http://localhost:4000/posts/add';
-          this.axios.post(uri, this.Post).then(() => {
-            console.log("pushing");
-          });
-        // console.log("done");
-        console.log(this.Post);
-        console.log(this.Posts);
-        return;  
-      }
+      
     }
   }
 </script>

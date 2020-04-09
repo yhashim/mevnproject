@@ -2,7 +2,14 @@
 
 import Vue from 'vue'
 import App from './App.vue'
+
+// importing Bootstrap add-ons that I downloaded
+// tutorial for downloading Bootstrap: https://www.youtube.com/watch?v=jSLj1h87W5Y
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery; // this just allows us to use $ to access jQuery more easily
+import 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/app.scss'
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);

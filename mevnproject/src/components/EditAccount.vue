@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h5>Edit Account</h5>
+    <h3>Edit Account</h3>
     <br/>
       <form @submit.prevent="updateAccount">
         <div class="form-row">
