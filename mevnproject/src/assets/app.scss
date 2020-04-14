@@ -39,6 +39,9 @@ $lightcolor: #97c5cf;
 
 body {
 	background-color: $bgcolor; 
+	/*background-image: url(https://www.regionofwaterloo.ca/en/living-here/resources/Images/Medical-Exemption-WEB.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;*/
 }
 
 h1, h2, h3, h5, h6, p {
@@ -48,6 +51,16 @@ h1, h2, h3, h5, h6, p {
 
 p {
 	text-align: center;
+}
+
+th {
+	width: 10%;
+}
+
+table {
+   overflow-y:scroll;
+   height: 450px;
+   display:block;
 }
 
 /*button {

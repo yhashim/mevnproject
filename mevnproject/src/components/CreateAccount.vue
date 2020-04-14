@@ -124,7 +124,7 @@
 
               console.log("An account under the email " + email + " was successfully created.");
             });
-
+            console.log(this.Accounts);
           return;  
         }
       }

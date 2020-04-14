@@ -9,7 +9,7 @@
               <th>Full Name</th>
               <th>Specialization</th>
               <th>Email Address</th>
-              <th>Actions</th>
+              <th class="actions">Actions</th>
               <th></th>
             </tr>
             </thead>

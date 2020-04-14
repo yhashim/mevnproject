@@ -65,6 +65,11 @@
         if (!acctFound) {
           console.log("An account under the email " + email + " cannot be found");
         }
+        // for (acct of this.Accounts){
+        //   if (email === acct.email){
+        //     console.log(acct._id);
+        //   }
+        // }
         // let uri = 'http://localhost:4000/Accounts/add';
         //   this.axios.posts(uri, this.Account).then(() => {
         //      this.$router.push({name: 'posts'});
