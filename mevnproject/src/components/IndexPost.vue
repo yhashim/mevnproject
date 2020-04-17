@@ -2,6 +2,11 @@
   <div>
       <h3>All Posts</h3>
       <br/>
+     <!--  <form class="form-inline my-2 my-lg-0" id="frmSearch" @submitprevent="search"> -->
+            <input class="form-control mr-sm-2" type="text" v-model="search" placeholder="Search for posts" aria-label="Search">
+            <!-- <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+          <br/>
         <table class="table table-hover table-borderless">
             <thead>
             <tr>
@@ -14,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr v-for="Post in Posts" :key="Post._id">
+                <tr v-for="Post in filteredPosts" :key="Post._id">
                   <td><router-link :to="{name: 'viewPost', params: { id: Post._id }}" class="btn btn-outline-info">{{ Post.title }}</router-link></td>
                   <!-- <td>{{ Post.text }}</td> -->
                   <td>{{ Post.poster }}</td>
@@ -31,7 +36,8 @@
   export default {
       data() {
         return {
-          Posts: []
+          Posts: [],
+          search: ''
         }
       },
       created() {
@@ -92,6 +98,14 @@
             }
           }
 
+        }
+      },
+      computed: {
+        // https://www.youtube.com/watch?v=G34_yNV8FMY
+        filteredPosts: function() {
+          return this.Posts.filter((post) => {
+            return post.title.match(this.search)
+          });
         }
       }
     }

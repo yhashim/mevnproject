@@ -29,10 +29,10 @@
               </div>    
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" id="frmSearch" @submitprevent="search">
-            <input class="form-control mr-sm-2" id="googleSearch" type="search" placeholder="Search" aria-label="Search" v-model="googleSearch">
+          <!-- <form class="form-inline my-2 my-lg-0" id="frmSearch" @submitprevent="search">
+            <input class="form-control mr-sm-2" type="text" v-model="search" placeholder="Search for posts" aria-label="Search">
             <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </form> -->
         </nav>
         <br/><br/><br/><br/><br/><br/><br/>
         <transition name="fade">
@@ -49,9 +49,9 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 
 <script>
   export default {
@@ -62,30 +62,45 @@
     data() {
         return {
             authenticated: false,
-            googleSearch: ''
+            // Posts: [],
+            // search: ''
         }
     },
+    // created() {
+    //     let uri = 'http://localhost:4000/Posts';
+    //     this.axios.get(uri).then(response => {
+    //       this.Posts = response.data;
+    //     });
+    // },
     mounted() {
       if(!this.authenticated) {
         this.$router.replace({ name: "home" });
       }
     },
     methods: {
-      updateGoogleSearch(value){
-        this.googleSearch = value;
-      },
-      search() {
-        // window.location = 'http://www.google.com/search?q=site:yoursitename.com ' + document.getElementById('txtSearch').value;
-        let uri = 'http://www.google.com/search?q=' + this.googleSearch;
-        this.$router.push(uri);
-        // script for search button in navbar
-      },
+      // updateGoogleSearch(value){
+      //   this.googleSearch = value;
+      // },
+      // search() {
+      //   // window.location = 'http://www.google.com/search?q=site:yoursitename.com ' + document.getElementById('txtSearch').value;
+      //   let uri = 'http://www.google.com/search?q=' + this.googleSearch;
+      //   this.$router.push(uri);
+      //   // script for search button in navbar
+      // },
       setAuthenticated(status) {
         this.authenticated = status;
       },
       logout() {
         this.authenticated = false;
       }
-    }
+    },
+    // computed: {
+    //   // https://www.youtube.com/watch?v=G34_yNV8FMY
+    //   filteredPosts: function() {
+    //     return this.Posts.filter((post) => {
+    //       return post.title.match(this.search)
+    //     });
+    //   }
+    // }
   }
 </script>
